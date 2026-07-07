@@ -7,8 +7,7 @@ A machine learning web application that predicts house prices in Bengaluru based
 - Predicts house prices using a trained machine learning model
 - User-friendly web interface
 - Location-based price estimation
-- Real-time predictions
-- Data preprocessing and model inference
+- Real-time price prediction
 
 ## Tech Stack
 
@@ -44,10 +43,10 @@ git clone https://github.com/azhaan355/bengaluru-house-price-prediction.git
 cd bengaluru-house-price-prediction
 ```
 
-3. Install dependencies
+3. Install the required Python libraries
 
 ```bash
-pip install -r requirements.txt
+pip install flask pandas numpy scikit-learn
 ```
 
 4. Run the application
@@ -66,7 +65,6 @@ http://127.0.0.1:5000
 
 - Improved prediction accuracy
 - Interactive data visualizations
-- User authentication
 - Cloud deployment
 - Model retraining with updated datasets
 
