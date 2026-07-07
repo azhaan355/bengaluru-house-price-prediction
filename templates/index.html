@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Bengaluru House Price Prediction</h2>
+
+        <form action="/predict" method="post">
+
+            <!-- Location -->
+            <label for="location">Location</label>
+            <input list="locations" id="location" name="location" value="{{ location }}" placeholder="Select Location" required>
+
+            <datalist id="locations">
+                {% for loc in locations %}
+                    <option value="{{ loc }}">
+                {% endfor %}
+            </datalist>
+
+            <!-- Square Feet -->
+            <label for="sqft">Total Area (Square Feet)</label>
+            <input type="number" id="sqft" name="sqft" value="{{ sqft }}" placeholder="Enter total area in square feet" required>
+
+            <!-- Bathrooms -->
+            <label for="bath">Number of Bathrooms</label>
+            <input type="number" id="bath" name="bath" value="{{ bath }}" placeholder="Enter number of bathrooms" required>
+
+            <!-- BHK -->
+            <label for="bhk">Number of Bedrooms (BHK)</label>
+            <input type="number" id="bhk" name="bhk" value="{{ bhk }}" placeholder="Enter number of bedrooms" required>
+
+            <button type="submit">Predict Price</button>
+        </form>
+
+        <div id="result">
+            {% if prediction_text %}
+            <h2 id="price">{{ prediction_text }}</h2>
+             {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+  window.onload = function () {
+    const result = document.getElementById("result");
+    if (result) {
+      result.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+</script>
+
+
